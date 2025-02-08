@@ -1,4 +1,4 @@
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -38,10 +38,23 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/sanity',
     '@vueuse/nuxt',
     '@nuxt/eslint',
     '@nuxt/icon'
   ],
+
+  sanity: {
+    projectId: process.env.NUXT_SANITY_PROJECT_ID,
+    dataset: process.env.NUXT_SANITY_DATASET,
+    useCdn: true,
+    apiVersion: process.env.NUXT_SANITY_API_VERSION || '2024-10-20',
+    visualEditing: {
+      studioUrl: process.env.NUXT_SANITY_STUDIO_URL || 'http://localhost:3000',
+      token: process.env.NUXT_SANITY_API_READ_TOKEN,
+      stega: false
+    }
+  },
 
   icon: {
     mode: 'svg'
@@ -50,9 +63,7 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/app.css'],
 
   vite: {
-    plugins: [
-      tailwindcss()
-    ]
+    plugins: [tailwindcss()]
   },
 
   components: [
