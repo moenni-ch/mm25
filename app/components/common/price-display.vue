@@ -3,7 +3,7 @@ import type { MoneyFragment } from '@@/types/shopify';
 
 // Props
 const props = defineProps<{
-  price?: MoneyFragment | null | undefined;
+  price?: MoneyFragment | null;
   compareAtPriceRange?: MoneyFragment;
 }>();
 
@@ -12,7 +12,9 @@ const helpers = useShopifyHelpers();
 
 // Computed
 const price = computed(() =>
-  props.price ? formatCurrency(props.price.amount, props.price.currencyCode) : ''
+  props.price
+    ? formatCurrency(props.price.amount, props.price.currencyCode)
+    : null
 );
 const OnSale = computed(() =>
   props.compareAtPriceRange && props.price
