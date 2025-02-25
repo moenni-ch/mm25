@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { ProductQueryVariables, ProductFragment } from '@@/types/shopify';
 
+import { flattenConnection } from '@/utils/graphql';
+
 // Route data
 const route = useRoute();
 const handle = computed(() => route.params.handle as string);
@@ -55,12 +57,8 @@ useHead({
   <section v-if="product" class="flex flex-col mb-20">
     <div class="grid gap-10 mb-10 lg:grid-cols-2 lg:gap-0 lg:mb-20">
       <div>
-        <ProductMediaGallery
-          :product-media="productMedia"
-        />
-        <ProductMediaCarousel
-          :product-media="productMedia"
-        />
+        <ProductMediaGallery :product-media="productMedia" />
+        <ProductMediaCarousel :product-media="productMedia" />
       </div>
       <div class="px-6">
         <ProductForm
@@ -71,9 +69,7 @@ useHead({
       </div>
     </div>
     <div class="px-6">
-      <ProductRecommendations
-        :products="productRecommendations"
-      />
+      <ProductRecommendations :products="productRecommendations" />
     </div>
   </section>
   <section v-else class="flex items-center gap-2 p-6">
