@@ -7,12 +7,11 @@ const errorMessage = ref('');
 const successMessage = ref('');
 const isLoading = ref(false);
 
-// Helpers
+// Klaviyo
+const klaviyo = useKlaviyo();
 const listId = 'StGPx7';
 
-// Newsletter
-const klaviyo = useKlaviyo();
-
+// Subscribe
 const handleNewsletter = async () => {
   errorMessage.value = '';
   successMessage.value = '';

@@ -17,9 +17,10 @@ const errorMessage = ref('');
 const successMessage = ref('');
 const isLoading = ref(false);
 
-// BackInStock
+// Klaviyo
 const klaviyo = useKlaviyo();
 
+// Subscribe
 const handleBackInStock = async () => {
   errorMessage.value = '';
   successMessage.value = '';
@@ -54,7 +55,6 @@ const closeModal = () => {
 };
 
 // Watchers
-const route = useRoute();
 const { escape } = useMagicKeys();
 
 watch(
@@ -64,13 +64,6 @@ watch(
       errorMessage.value = '';
       successMessage.value = '';
     }
-  }
-);
-
-watch(
-  () => route.path,
-  () => {
-    closeModal();
   }
 );
 

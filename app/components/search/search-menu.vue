@@ -11,9 +11,10 @@ const shopStore = useShopStore();
 const searchQuery = ref('');
 const searchResults = ref<ProductFragment[]>([]);
 
-// Predictive search
+// Shopify
 const shopify = useShopify();
 
+// Search (predictive)
 const handleSearch = useDebounceFn(async () => {
   const trimmedQuery = searchQuery.value.trim();
 

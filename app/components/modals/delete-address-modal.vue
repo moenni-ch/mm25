@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useMagicKeys } from '@vueuse/core';
+
 const props = defineProps<{
   addressId: string | null
 }>();
@@ -7,9 +9,10 @@ const props = defineProps<{
 const appStore = useAppStore();
 const authStore = useAuthStore();
 
-// Delete Address
+// Shopify
 const shopify = useShopify();
 
+// Delete Address
 const deleteAddress = async () => {
   if (!props.addressId) return;
 
@@ -26,6 +29,15 @@ const deleteAddress = async () => {
 const closeModal = () => {
   appStore.toggle('deleteAddressModal', false);
 };
+
+// Watchers
+const { escape } = useMagicKeys();
+
+if (escape) {
+  watch(escape, () => {
+    closeModal();
+  });
+}
 </script>
 
 <template>
