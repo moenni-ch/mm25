@@ -28,7 +28,6 @@ useHead({
     <AppHeader />
     <CartDrawer />
     <MobileMenu />
-    test2
     <SearchMenu />
     <LocaleModal />
     <main role="main" class="flex-1 min-h-svh">
