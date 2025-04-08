@@ -26,3 +26,6 @@ logs
 .env.*
 !.env.example
 .vercel
+
+# Local Netlify folder
+.netlify
