@@ -51,12 +51,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="emblaRef" class="relative overflow-hidden lg:hidden">
+  <div ref="emblaRef" class="relative overflow-hidden lg:hidden pr-[10vw]">
     <div class="flex">
       <div
         v-for="(media, index) in props.productMedia"
         :key="media.id"
-        class="flex-[0_0_100%] aspect-square"
+        class="flex-[0_0_90vw] mr-8"
       >
         <ShopifyVideo
           v-if="isMediaVideo(media)"
@@ -70,26 +70,19 @@ onMounted(() => {
         />
       </div>
     </div>
-    <div class="absolute flex items-center justify-center gap-2 w-full p-2 bottom-0">
-      <div v-for="(_, index) in productMedia" :key="index">
-        <button
-          class="size-2 rounded-full border border-black"
-          :class="{ 'bg-black': index === selectedIndex }"
-          @click="scrollTo(index)"
-        />
-      </div>
-    </div>
+
+  <!-- 
+  remove pagination 
+-->
     <button
-      class="absolute flex items-center justify-center z-10 p-2 top-0 left-0 h-full"
+      class="absolute flex items-center justify-center z-10 p-8 top-0 left-0 h-full"
       @click="scrollPrev"
     >
-      <Icon name="ph:caret-left" class="size-5 shrink-0" />
     </button>
     <button
-      class="absolute flex items-center justify-center z-10 p-2 top-0 right-0 h-full"
+      class="absolute flex items-center justify-center z-10 p-8 top-0 right-0 h-full"
       @click="scrollNext"
     >
-      <Icon name="ph:caret-right" class="size-5 shrink-0" />
     </button>
   </div>
 </template>

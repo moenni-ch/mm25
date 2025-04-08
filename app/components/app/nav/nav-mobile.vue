@@ -26,9 +26,7 @@ const emit = defineEmits([
       </button>
     </div>
     <div class="flex items-center">
-      <NuxtLink id="logo" to="/" class="p-2 text-normalize bg-transparent rounded-full">
       <Logo />
-      </NuxtLink>
     </div>
     <div class="grid grid-flow-col justify-end items-center">
       <button
