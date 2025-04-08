@@ -62,5 +62,7 @@ export default defineNuxtConfig({
       path: '@/components',
       pathPrefix: false
     }
-  ]
+  ],
+
+  compatibilityDate: '2025-04-08'
 });
